@@ -7,13 +7,13 @@ class Utils {
         this.page = page;
     }
 
-    // Fill text field
+   //Fill
     async fill(locator, value) {await locator.fill(value); }
 
-    // Click element
+    //CLick
     async click(locator) {await locator.click(); }
 
-     // Common visibility verification
+   //Verify Visible
     async verifyVisible(locator) {await expect(locator).toBeVisible();
     }
 }
