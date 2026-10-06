@@ -1,0 +1,15 @@
+{
+  "name": "weberp",
+  "version": "1.0.0",
+  "type": "module",
+ "scripts": {
+  "test": "cucumber-js \"features/**/*.feature\" --import \"step-definition/**/*.js\" --import \"support/**/*.js\""
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^13.2.1",
+    "@playwright/test": "^1.63.0"
+  }
+}
