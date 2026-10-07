@@ -22,7 +22,8 @@ class UtilitiesPage {
         this.deleteSalesTransactions = page.locator('a[href="/webERP/Z_DeleteSalesTransActions.php"]');
         this.reverseSupplierPayments = page.locator('a[href="/webERP/Z_ReverseSuppPaymentRun.php"]');
         this.updateSalesAnalysisWithLatestCustomerData = page.locator('a[href="/webERP/Z_UpdateSalesAnalysisWithLatestCustomerData.php"]');
-        this.copyAuthorityOfGLAccounts = page.locator('a[href="/webERP/Z_GLAccountUsersCopyAuthority.php"]');
+        this.copyAuthorityOfGLAccounts = page.locator('a[href="/webERP/Z_GLAccountUsersCopyAuthority.php"]'
+);
     }
 
     async clickUtilities() {
@@ -49,7 +50,6 @@ class UtilitiesPage {
     await this.utils.verifyVisible(this.changeLocationCode);
     }
 
- 
     async verifyChangeSalesmanCode() {
     await this.utils.verifyVisible(this.changeSalesmanCode);
     }
@@ -72,7 +72,7 @@ class UtilitiesPage {
    
     async verifyReApplyCostsToSalesAnalysis() {
     await this.utils.verifyVisible(this.reApplyCostsToSalesAnalysis);
-    }
+   }
    
     async verifyDeleteSalesTransactions() {
     await this.utils.verifyVisible(this.deleteSalesTransactions);
@@ -82,13 +82,12 @@ class UtilitiesPage {
     await this.utils.verifyVisible(this.reverseSupplierPayments);
     }
  
-    async verifyUpdateSalesAnalysisWithLatestCustomerData() {
-    await this.utils.verifyVisible(this.updateSalesAnalysisWithLatestCustomerData);
-    }
-    
-    async verifyCopyAuthorityOfGLAccounts() {
-    await this.utils.verifyVisible(this.copyAuthorityOfGLAccounts);
-    }
+  async verifyUpdateSalesAnalysisWithLatestCustomerData() {
+  await this.utils.verifyVisible(this.updateSalesAnalysisWithLatestCustomerData);
+  }
+  async verifyCopyAuthorityOfGLAccounts() {
+  await this.utils.verifyVisible(this.copyAuthorityOfGLAccounts);
+}
 }
 
 export default UtilitiesPage;

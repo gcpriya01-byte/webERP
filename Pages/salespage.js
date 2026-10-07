@@ -20,7 +20,7 @@ class SalesPage {
         this.maintainPickingLists = page.locator('a[href="/webERP/SelectPickingLists.php"]');
     }
    
-     async clickSales() {
+    async clickSales() {
     await this.utils.click(this.salesMenu);
     }
 

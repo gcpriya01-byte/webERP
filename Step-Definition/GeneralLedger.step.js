@@ -1,33 +1,38 @@
 import { When, Then, setDefaultTimeout } from '@cucumber/cucumber';
-import { expect } from '@playwright/test';
-
+import GeneralLedgerPage from '../Pages/GeneralLedgerPage.js';
 setDefaultTimeout(30000);
 
 
-When('I click on General Ledger', async function () 
-{await this.page.getByText('General Ledger', { exact: true }).click();
+When('I click on General Ledger', async function () {
+this.generalLedgerPage = new GeneralLedgerPage(this.page);
+await this.generalLedgerPage.clickGeneralLedger();
 });
 
 Then('I should see Bank Account Payments Entry', async function () {
-await expect(this.page.locator('a[href="/webERP/Payments.php?NewPayment=Yes"]')).toBeVisible();
+await this.generalLedgerPage.verifyBankAccountPaymentsEntry();
 });
 
 Then('I should see Bank Account Receipts Entry', async function () {
-await expect(this.page.locator('a[href="/webERP/CustomerReceipt.php?NewReceipt=Yes&Type=GL"]')).toBeVisible();
+ await this.generalLedgerPage.verifyBankAccountReceiptsEntry();
+
 });
 
 Then('I should see Import Bank Transactions', async function () {
-await expect(this.page.locator('a[href="/webERP/ImportBankTrans.php"]')).toBeVisible();
+await this.generalLedgerPage.verifyImportBankTransactions();
 });
+
 
 Then('I should see Bank Account Payments Matching', async function () {
-await expect(this.page.locator('a[href="/webERP/BankMatching.php?Type=Payments"]')).toBeVisible();
+await this.generalLedgerPage.verifyBankAccountPaymentsMatching();
 });
+
 
 Then('I should see Bank Account Receipts Matching', async function () {
-await expect(this.page.locator('a[href="/webERP/BankMatching.php?Type=Receipts"]')).toBeVisible();
+await this.generalLedgerPage.verifyBankAccountReceiptsMatching();
 });
 
+
 Then('I should see Journal Entry', async function () {
-await expect( this.page.locator('a[href="/webERP/GLJournal.php?NewJournal=Yes"]')).toBeVisible();
+await this.generalLedgerPage.verifyJournalEntry();
+
 });

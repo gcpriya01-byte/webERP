@@ -1,25 +1,32 @@
 import { When, Then, setDefaultTimeout } from '@cucumber/cucumber';
-import { expect } from '@playwright/test';
+import ManufacturingPage from '../Pages/ManufacturingPage.js';
 
 setDefaultTimeout(30000);
 
 
+
 When('I click on Manufacturing', async function () {
-    await this.page.getByText('Manufacturing', { exact: true }).click();
+    this.manufacturingPage = new ManufacturingPage(this.page);
+    await this.manufacturingPage.clickManufacturing();
 });
+
 
 Then('I should see Work Order Entry', async function () {
-    await expect(this.page.locator('a[href="/webERP/WorkOrderEntry.php"]')).toBeVisible();
+    await this.manufacturingPage.verifyWorkOrderEntry();
 });
+
+
 
 Then('I should see Select A Work Order', async function () {
-    await expect(this.page.locator('a[href="/webERP/SelectWorkOrder.php"]').first()).toBeVisible();
+    await this.manufacturingPage.verifySelectWorkOrder();
 });
+
 
 Then('I should see QA Samples and Test Results', async function () {
-await expect(this.page.locator('a[href="/webERP/SelectQASamples.php"]')).toBeVisible();
+    await this.manufacturingPage.verifyQASamples();
 });
 
+
 Then('I should see Timesheet Entry', async function () {
-await expect(this.page.locator( 'a[href="/webERP/Timesheets.php"]')).toBeVisible();
+    await this.manufacturingPage.verifyTimesheetEntry();
 });

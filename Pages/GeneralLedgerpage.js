@@ -16,7 +16,6 @@ class GeneralLedgerPage {
         this.bankAccountReceiptsMatching = page.locator('a[href="/webERP/BankMatching.php?Type=Receipts"]');
         this.journalEntry = page.locator('a[href="/webERP/GLJournal.php?NewJournal=Yes"]');
     }
-
    
     async clickGeneralLedger() {
     await this.utils.click(this.generalLedger);
@@ -34,8 +33,7 @@ class GeneralLedgerPage {
     await this.utils.verifyVisible(this.importBankTransactions);
     }
 
-   
-    async verifyBankAccountPaymentsMatching() {
+       async verifyBankAccountPaymentsMatching() {
     await this.utils.verifyVisible(this.bankAccountPaymentsMatching);
     }
 
